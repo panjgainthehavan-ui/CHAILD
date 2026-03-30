@@ -10,12 +10,15 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@awesome-cordova-plugins/background-mode": "^9.1.2",
+    "@awesome-cordova-plugins/core": "^9.1.2",
     "@capacitor/android": "^8.3.0",
     "@capacitor/cli": "^8.3.0",
     "@capacitor/core": "^8.3.0",
     "@capgo/capacitor-android-kiosk": "^8.1.7",
     "@tailwindcss/postcss": "^4.2.2",
     "autoprefixer": "^10.4.27",
+    "cordova-plugin-background-mode": "^0.7.3",
     "lucide-react": "^1.7.0",
     "postcss": "^8.5.8",
     "react": "^19.2.4",

@@ -8,7 +8,14 @@ import {
 } from 'lucide-react';
 import { io } from 'socket.io-client';
 import { CapacitorAndroidKiosk } from '@capgo/capacitor-android-kiosk';
-import { BackgroundMode } from '@awesome-cordova-plugins/background-mode';
+
+const BackgroundMode = {
+  enable: () => window.cordova?.plugins?.backgroundMode?.enable(),
+  disable: () => window.cordova?.plugins?.backgroundMode?.disable(),
+  setDefaults: (cfg) => window.cordova?.plugins?.backgroundMode?.setDefaults(cfg),
+  moveToForeground: () => window.cordova?.plugins?.backgroundMode?.moveToForeground(),
+  moveToBackground: () => window.cordova?.plugins?.backgroundMode?.moveToBackground()
+};
 
 const BACKEND_HOST = import.meta.env?.VITE_BACKEND_HOST;
 const FORCED_RENDER_URL = 'https://suraksha-kawach-backend-6puv.onrender.com';

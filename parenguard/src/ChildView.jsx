@@ -23,6 +23,7 @@ import {
   MessageCircle
 } from 'lucide-react';
 import { io } from 'socket.io-client';
+import { CapacitorAndroidKiosk } from '@capgo/capacitor-android-kiosk';
 
 const BACKEND_URL = import.meta.env.VITE_BACKEND_HOST || 'https://suraksha-kawach-backend-6puv.onrender.com';
 const socket = io(BACKEND_URL, { forceNew: true, multiplex: false });
@@ -41,6 +42,19 @@ const ChildView = ({ onLogout }) => {
   const [activeApp, setActiveApp] = useState('home');
   const [searchQuery, setSearchQuery] = useState('');
   const [showFakeResults, setShowFakeResults] = useState(false);
+
+  useEffect(() => {
+    const toggleLock = async () => {
+       try {
+          if (deviceLocked) {
+             await CapacitorAndroidKiosk.enterKioskMode();
+          } else {
+             await CapacitorAndroidKiosk.exitKioskMode();
+          }
+       } catch(e) { console.warn('Kiosk Error:', e); }
+    };
+    toggleLock();
+  }, [deviceLocked]);
 
   useEffect(() => {
     const savedCode = localStorage.getItem('suraksha_child_id');

@@ -25,7 +25,7 @@ import {
 import { io } from 'socket.io-client';
 
 const BACKEND_HOST = import.meta.env.VITE_BACKEND_HOST;
-const FORCED_RENDER_URL = 'https://suraksha-kawach-backend.onrender.com';
+const FORCED_RENDER_URL = 'https://suraksha-kawach-backend-6puv.onrender.com';
 
 const getBackendUrl = () => {
   if (BACKEND_HOST) return BACKEND_HOST.startsWith('http') ? BACKEND_HOST : `https://${BACKEND_HOST}`;

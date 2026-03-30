@@ -8,7 +8,7 @@ import { io } from 'socket.io-client';
 export default function AppGateway() {
    const [mode, setMode] = useState(() => localStorage.getItem('suraksha_mode') || 'none');
    const [activeTab, setActiveTab] = useState('dashboard');
-   const BACKEND_URL = 'http://localhost:3000';
+   const BACKEND_URL = import.meta.env.VITE_BACKEND_HOST || 'https://suraksha-kawach-backend-6puv.onrender.com';
    const [children, setChildren] = useState(() => {
       const saved = localStorage.getItem('suraksha_children');
       return saved ? JSON.parse(saved) : [
